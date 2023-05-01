@@ -46,3 +46,16 @@ Include Flowbite’s JavaScript file inside the index.html file just before the 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
 ```
+Out of css, this is how you use ``` url_for ``` to dynamically generate links to the sections in your flask templates. 
+
+On your nav links for instance a link to your testimonials section you could have this:
+```
+<a href="{{ url_for('index', _anchor='testimonials') }}">Testimonials</a>
+
+```
+You should also create its respective route in routes.py as shown below:
+```
+def testimonials():
+    """testinomials URL"""
+    return render_template('index.html', section_anchor='testimonials')
+```
